@@ -7,9 +7,7 @@ It replicates the **Figma design** provided in the task, using data from the **F
 
 ## 🚀 Live Demo
 
-🔗 [View Deployed App on Netlify](https://your-netlify-link.netlify.app)
-
-*(Replace the link above after deployment.)*
+🔗 [View Deployed App on Netlify](https://69063910f3d908976f06fb82--symphonious-froyo-0106cf.netlify.app/)
 
 ---
 
@@ -65,33 +63,9 @@ The app runs at http://localhost:3000
 
 5. Click Deploy 🚀
 
-## 📁 Folder Structure
-```
-src/
-│
-├── components/
-│   ├── Header.jsx
-│   ├── ProductCard.jsx
-│   ├── Filters.jsx
-│   ├── Footer.jsx
-│   └── ...
-│
-├── pages/
-│   └── Home.jsx
-│
-├── assets/
-│   └── fonts/
-│       ├── Simplon-Norm-Regular.woff2
-│       └── Simplon-Norm-SemiBold.woff2
-│
-├── App.js
-├── index.js
-└── index.css
-```
-
 ## 🧩 API Used
 
-# FakeStore API
+**FakeStore API**
 Base URL → https://fakestoreapi.com/
 
 Endpoints used:
@@ -126,7 +100,7 @@ fetch("https://fakestoreapi.com/products")
 Maheeth T
 📧 thotakuramaheerth@gmail.com
 
-🔗 GitHub(https://github.com/Maheeth1)
+🔗 [GitHub](https://github.com/Maheeth1)
  | LinkedIn
 
 📝 “Designed with attention to detail and built with React — clean, modern, and responsive.”
