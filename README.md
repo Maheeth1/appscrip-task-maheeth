@@ -1,36 +1,132 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛍️ Appscrip Task — Product Listing Page
 
-## Getting Started
+This project is a **React-based product listing page** built as part of the **Appscrip Frontend Assignment**.  
+It replicates the **Figma design** provided in the task, using data from the **FakeStore API**.
 
-First, run the development server:
+---
+
+## 🚀 Live Demo
+
+🔗 [View Deployed App on Netlify](https://your-netlify-link.netlify.app)
+
+*(Replace the link above after deployment.)*
+
+---
+
+## 📸 Features
+
+- 🎨 **Pixel-perfect layout** based on provided Figma design  
+- 🧩 **Dynamic filters** for category, price, and other product attributes  
+- 🔍 **Search and sorting functionality**  
+- 🛒 **Modern UI components**: clean grid layout, hover effects, and smooth transitions  
+- 🌐 **Responsive** for desktop and mobile  
+- 🧠 **Data fetched live** from [FakeStore API](https://fakestoreapi.com/)  
+- 💎 **Custom font (Simplon Norm)** for authentic design consistency  
+
+---
+
+## 🧰 Tech Stack
+
+| Tech | Purpose |
+|------|----------|
+| **React.js (CRA)** | Frontend framework |
+| **CSS Modules** | Component-scoped styling (no Tailwind) |
+| **FakeStore API** | Product data |
+| **Netlify** | Hosting |
+
+---
+
+## 🛠️ Installation & Setup
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# 1️⃣ Clone the repository
+git clone https://github.com/your-username/appscrip-task.git
+
+# 2️⃣ Enter the project folder
+cd appscrip-task
+
+# 3️⃣ Install dependencies
+npm install
+
+# 4️⃣ Run locally
+npm start
+```
+The app runs at http://localhost:3000
+
+## 🌍 Deployment (Netlify)
+
+1. Create a Netlify account → https://netlify.com
+
+2. Connect your GitHub repo
+
+3. Set build command: npm run build
+
+4. Set publish directory: build
+
+5. Click Deploy 🚀
+
+## 📁 Folder Structure
+```
+src/
+│
+├── components/
+│   ├── Header.jsx
+│   ├── ProductCard.jsx
+│   ├── Filters.jsx
+│   ├── Footer.jsx
+│   └── ...
+│
+├── pages/
+│   └── Home.jsx
+│
+├── assets/
+│   └── fonts/
+│       ├── Simplon-Norm-Regular.woff2
+│       └── Simplon-Norm-SemiBold.woff2
+│
+├── App.js
+├── index.js
+└── index.css
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🧩 API Used
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+# FakeStore API
+Base URL → https://fakestoreapi.com/
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Endpoints used:
 
-## Learn More
+- /products
 
-To learn more about Next.js, take a look at the following resources:
+- /products/categories
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Example:
+```
+fetch("https://fakestoreapi.com/products")
+  .then(res => res.json())
+  .then(data => setProducts(data))
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🎯 Assignment Guidelines Followed
 
-## Deploy on Vercel
+- ✅ No TailwindCSS used
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- ✅ Used CSS Modules for styling
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- ✅ Font: Simplon Norm (Regular & SemiBold)
+
+- ✅ Deployed to Netlify
+
+- ✅ Data fetched from FakeStore API
+
+- ✅ Matches provided Figma layout
+
+## 👨‍💻 Author
+
+Maheeth T
+📧 thotakuramaheerth@gmail.com
+
+🔗 GitHub(https://github.com/Maheeth1)
+ | LinkedIn
+
+📝 “Designed with attention to detail and built with React — clean, modern, and responsive.”
