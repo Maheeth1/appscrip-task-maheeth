@@ -6,7 +6,8 @@ import styles from "./page.module.css";
 
 export default async function Page() {
   const res = await fetch("https://fakestoreapi.com/products", { cache: "no-store" });
-  const products = (await res.json()) || [];
+  const data = await res.json();
+  const products = Array(5).fill(data).flat();
 
   const schema = {
     "@context": "https://schema.org",
@@ -30,7 +31,7 @@ export default async function Page() {
         </div>
       </section>
 
-      <section className="container" aria-labelledby="plp-heading">
+      <section aria-labelledby="plp-heading">
         <div className={styles.contentRow}>
           <aside className={styles.leftCol} aria-label="Filters">
             <Filters />

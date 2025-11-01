@@ -11,15 +11,16 @@
   justify-content:space-between;
   gap:12px;
   padding:14px 0;
+  border-bottom: 2px solid #b6b6c3;
 }
-.left { display:flex; align-items:center; gap:20px; }
-.brand { font-weight:700; font-size:20px; color: #0b1a2b; text-decoration:none; }
-.nav { display:flex; gap:18px; align-items:center; }
-.nav a { color:var(--muted); text-decoration:none; font-weight:600; font-size:14px; }
-.nav a:hover { color:var(--accent) }
+.left { display:flex; align-items:center; gap:40px; margin-left:40px; }
+.brand { font-weight:700; font-size:40px; color: #0b1a2b; text-decoration:none; }
+.nav { display:flex; gap:18px; align-items:center; justify-content: center;}
+.nav a { color:var(--muted); text-decoration:none; font-weight:600; font-size:24px; justify-content: center;}
+.nav a:hover { justify-content: center; color:var(--accent) }
 
 .right { display:flex; gap:10px; align-items:center; }
-.iconBtn { background:transparent; border:0; padding:8px; cursor:pointer; color:var(--muted); border-radius:8px; }
+.iconBtn { background:transparent; border:0; padding:12px; cursor:pointer; color:var(--muted); border-radius:12px; }
 .iconBtn:hover { background:#f2f6fb; color:var(--accent) }
 
 @media (max-width: 900px) {

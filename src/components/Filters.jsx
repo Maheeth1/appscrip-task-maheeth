@@ -2,11 +2,6 @@
 import { useState } from "react";
 import styles from "./Filters.module.css";
 
-/**
- * Filters component — modern UI matching Figma:
- * - sections: occasion, work, fabric, segment, suitableFor, rawMaterial, pattern
- * - storing filter state in localStorage and dispatching event "plpFiltersChanged"
- */
 export default function Filters() {
   const [expanded, setExpanded] = useState(true);
   const [filters, setFilters] = useState({
@@ -49,25 +44,23 @@ export default function Filters() {
             </select>
           </div>
 
-          <div className={styles.twoCol}>
-            <div className={styles.section}>
-              <label className={styles.label}>Work</label>
-              <select value={filters.work} onChange={(e) => update("work", e.target.value)} className={styles.select}>
-                <option value="all">All</option>
-                <option value="office">Office</option>
-                <option value="field">Field</option>
-              </select>
-            </div>
+          <div className={styles.section}>
+            <label className={styles.label}>Work</label>
+            <select value={filters.work} onChange={(e) => update("work", e.target.value)} className={styles.select}>
+              <option value="all">All</option>
+              <option value="office">Office</option>
+              <option value="field">Field</option>
+            </select>
+          </div>
 
-            <div className={styles.section}>
-              <label className={styles.label}>Fabric</label>
-              <select value={filters.fabric} onChange={(e) => update("fabric", e.target.value)} className={styles.select}>
-                <option value="all">All</option>
-                <option value="cotton">Cotton</option>
-                <option value="polyester">Polyester</option>
-                <option value="silk">Silk</option>
-              </select>
-            </div>
+          <div className={styles.section}>
+            <label className={styles.label}>Fabric</label>
+            <select value={filters.fabric} onChange={(e) => update("fabric", e.target.value)} className={styles.select}>
+              <option value="all">All</option>
+              <option value="cotton">Cotton</option>
+              <option value="polyester">Polyester</option>
+              <option value="silk">Silk</option>
+            </select>
           </div>
 
           <div className={styles.section}>
@@ -80,24 +73,22 @@ export default function Filters() {
             </select>
           </div>
 
-          <div className={styles.twoCol}>
-            <div className={styles.section}>
-              <label className={styles.label}>Suitable For</label>
-              <select value={filters.suitableFor} onChange={(e) => update("suitableFor", e.target.value)} className={styles.select}>
-                <option value="all">All</option>
-                <option value="outdoor">Outdoor</option>
-                <option value="indoor">Indoor</option>
-              </select>
-            </div>
+          <div className={styles.section}>
+            <label className={styles.label}>Suitable For</label>
+            <select value={filters.suitableFor} onChange={(e) => update("suitableFor", e.target.value)} className={styles.select}>
+              <option value="all">All</option>
+              <option value="outdoor">Outdoor</option>
+              <option value="indoor">Indoor</option>
+            </select>
+          </div>
 
-            <div className={styles.section}>
-              <label className={styles.label}>Pattern</label>
-              <select value={filters.pattern} onChange={(e) => update("pattern", e.target.value)} className={styles.select}>
-                <option value="all">All</option>
-                <option value="plain">Plain</option>
-                <option value="printed">Printed</option>
-              </select>
-            </div>
+          <div className={styles.section}>
+            <label className={styles.label}>Pattern</label>
+            <select value={filters.pattern} onChange={(e) => update("pattern", e.target.value)} className={styles.select}>
+              <option value="all">All</option>
+              <option value="plain">Plain</option>
+              <option value="printed">Printed</option>
+            </select>
           </div>
 
           <div className={styles.section}>

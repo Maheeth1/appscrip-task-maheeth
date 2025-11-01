@@ -1,26 +1,30 @@
 .hero {
   background: linear-gradient(180deg, #ffffff 0%, #f5f7fb 100%);
-  border-bottom: 1px solid #eef2f6;
+  border-bottom: 2px solid #b6b6c3;
   padding: 36px 0;
 }
 .heroTitle {
   text-align:center;
-  font-size:34px;
+  font-size:58px;
   margin:0 0 8px;
   letter-spacing: -0.01em;
-  font-weight:600;
+  font-weight:500;
 }
 .heroSubtitle {
   margin:0;
   text-align:center;
   color:var(--muted);
-  font-size:15px;
+  font-size:20px;
 }
 .contentRow {
-  display:flex;
-  gap:var(--gap);
-  align-items:flex-start;
-  margin-top:20px;
+  display: flex;
+  gap: var(--gap);
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+  padding: 0 34px; 
+  box-sizing: border-box;
 }
 .leftCol {
   width:300px;
