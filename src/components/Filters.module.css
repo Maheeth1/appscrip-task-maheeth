@@ -1,114 +1,111 @@
-/* Filters Panel */
 .panel {
-  background: var(--card);
-  padding: 24px;
-  border-radius: 12px;
-  border: 1px solid #eef2f6;
-  box-shadow: 0 4px 10px rgba(12,20,30,0.03);
-
-  width: 20vw;              /* Takes 30% of viewport width */
-  min-width: 280px;         /* Keeps usable on small screens */
-  height: 100% ;         
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 16px;
+  background-color: #fff;
+  font-family: "Poppins", sans-serif;
+  width: 260px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-/* Panel header */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
+  cursor: pointer;
+  margin-bottom: 12px;
 }
 
-.title {
+.header h3 {
+  margin: 0;
   font-size: 18px;
   font-weight: 600;
-  color: var(--text);
+  color: #222;
 }
 
-/* Panel body */
+.toggleBtn {
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+  color: #666;
+}
+
 .body {
   display: flex;
   flex-direction: column;
   gap: 18px;
-  flex-grow: 1;
 }
 
-/* Each section (Category, Price, Rating, etc.) */
 .section {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
-/* Labels */
 .label {
   font-size: 14px;
-  color: var(--muted);
-  margin-bottom: 4px;
+  color: #333;
+  font-weight: 500;
 }
 
-/* Dropdowns & Inputs */
-.select,
+.select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.2s;
+}
+.select:focus {
+  border-color: #111;
+}
+
 .range {
   width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #e6edf3;
-  border-radius: 8px;
-  background: #fff;
-  font-size: 14px;
-  box-sizing: border-box;
-}
-
-.range {
-  accent-color: var(--accent);
   cursor: pointer;
 }
 
-/* Actions */
 .actions {
   display: flex;
-  gap: 10px;
-  justify-content: flex-end;
-  margin-top: 16px;
+  justify-content: space-between;
+  margin-top: 10px;
 }
 
 .clearBtn,
 .applyBtn {
-  padding: 8px 14px;
-  border-radius: 8px;
-  cursor: pointer;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
   font-size: 14px;
-  transition: all 0.2s ease;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
-/* Button styles */
 .clearBtn {
-  border: 1px solid #e6edf3;
-  background: #fff;
-  color: var(--text);
+  background-color: #f5f5f5;
+  color: #444;
 }
-
 .clearBtn:hover {
-  background: #f8fafc;
+  background-color: #e6e6e6;
 }
 
 .applyBtn {
-  border: none;
-  background: var(--accent);
+  background-color: #111;
   color: #fff;
 }
-
 .applyBtn:hover {
-  opacity: 0.9;
+  background-color: #333;
 }
-@media (max-width: 1024px) {
+
+@media (max-width: 768px) {
   .panel {
-    width: 80vw;           /* Wider on smaller screens */
-    height: auto;          /* Auto height for better fit */
-    max-height: 70vh;      /* Max height to avoid overflow */
+    width: 100%;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: none;
   }
 }

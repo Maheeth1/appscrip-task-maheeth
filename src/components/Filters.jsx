@@ -1,112 +1,106 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./Filters.module.css";
 
-export default function Filters() {
+export default function Filters({ isVisible, onApply }) {
   const [expanded, setExpanded] = useState(true);
   const [filters, setFilters] = useState({
-    occasion: "all",
-    work: "all",
-    fabric: "all",
-    segment: "all",
-    suitableFor: "all",
-    rawMaterial: "all",
-    pattern: "all",
+    category: "all",
     maxPrice: 1000,
   });
 
+  // Update filters and trigger grid refresh
   function update(key, value) {
     const next = { ...filters, [key]: value };
     setFilters(next);
-    // persist & notify
     try {
       localStorage.setItem("plp_filters", JSON.stringify(next));
       window.dispatchEvent(new Event("plpFiltersChanged"));
-    } catch (e) { /* ignore */ }
+    } catch (e) {
+      console.warn("Filter update error:", e);
+    }
   }
 
+  // Initialize filters from localStorage
+  useEffect(() => {
+    const saved = localStorage.getItem("plp_filters");
+    if (saved) setFilters(JSON.parse(saved));
+  }, []);
+
+  if (!isVisible) return null;
+
   return (
-    <div className={styles.panel}>
-      <div className={styles.header} onClick={() => setExpanded(s => !s)}>
-        <strong>Filters</strong>
-        <button aria-expanded={expanded} className={styles.collapseBtn}>{expanded ? "−" : "+"}</button>
+    <aside className={styles.panel}>
+      <div className={styles.header}>
+        <h3>Filters</h3>
+        <button
+          onClick={() => setExpanded((s) => !s)}
+          className={styles.toggleBtn}
+          aria-expanded={expanded}
+        >
+          {expanded ? "−" : "+"}
+        </button>
       </div>
 
       {expanded && (
         <div className={styles.body}>
+          {/* Category Filter */}
           <div className={styles.section}>
-            <label className={styles.label}>Occasion</label>
-            <select value={filters.occasion} onChange={(e) => update("occasion", e.target.value)} className={styles.select}>
+            <label className={styles.label}>Category</label>
+            <select
+              value={filters.category}
+              onChange={(e) => update("category", e.target.value)}
+              className={styles.select}
+            >
               <option value="all">All</option>
-              <option value="casual">Casual</option>
-              <option value="formal">Formal</option>
-              <option value="party">Party</option>
+              <option value="men's clothing">Men's Clothing</option>
+              <option value="women's clothing">Women's Clothing</option>
+              <option value="jewelery">Jewelry</option>
+              <option value="electronics">Electronics</option>
             </select>
           </div>
 
+          {/* Price Filter */}
           <div className={styles.section}>
-            <label className={styles.label}>Work</label>
-            <select value={filters.work} onChange={(e) => update("work", e.target.value)} className={styles.select}>
-              <option value="all">All</option>
-              <option value="office">Office</option>
-              <option value="field">Field</option>
-            </select>
+            <label className={styles.label}>
+              Max Price: <strong>${filters.maxPrice}</strong>
+            </label>
+            <input
+              className={styles.range}
+              type="range"
+              min="10"
+              max="1000"
+              step="10"
+              value={filters.maxPrice}
+              onChange={(e) => update("maxPrice", e.target.value)}
+            />
           </div>
 
-          <div className={styles.section}>
-            <label className={styles.label}>Fabric</label>
-            <select value={filters.fabric} onChange={(e) => update("fabric", e.target.value)} className={styles.select}>
-              <option value="all">All</option>
-              <option value="cotton">Cotton</option>
-              <option value="polyester">Polyester</option>
-              <option value="silk">Silk</option>
-            </select>
-          </div>
-
-          <div className={styles.section}>
-            <label className={styles.label}>Segment</label>
-            <select value={filters.segment} onChange={(e) => update("segment", e.target.value)} className={styles.select}>
-              <option value="all">All</option>
-              <option value="mens">Men</option>
-              <option value="womens">Women</option>
-              <option value="kids">Kids</option>
-            </select>
-          </div>
-
-          <div className={styles.section}>
-            <label className={styles.label}>Suitable For</label>
-            <select value={filters.suitableFor} onChange={(e) => update("suitableFor", e.target.value)} className={styles.select}>
-              <option value="all">All</option>
-              <option value="outdoor">Outdoor</option>
-              <option value="indoor">Indoor</option>
-            </select>
-          </div>
-
-          <div className={styles.section}>
-            <label className={styles.label}>Pattern</label>
-            <select value={filters.pattern} onChange={(e) => update("pattern", e.target.value)} className={styles.select}>
-              <option value="all">All</option>
-              <option value="plain">Plain</option>
-              <option value="printed">Printed</option>
-            </select>
-          </div>
-
-          <div className={styles.section}>
-            <label className={styles.label}>Max price: ${filters.maxPrice}</label>
-            <input className={styles.range} type="range" min="10" max="2000" value={filters.maxPrice} onChange={(e)=>update("maxPrice", e.target.value)} />
-          </div>
-
+          {/* Buttons */}
           <div className={styles.actions}>
-            <button className={styles.clearBtn} onClick={() => { 
-              const reset = { occasion:"all", work:"all", fabric:"all", segment:"all", suitableFor:"all", rawMaterial:"all", pattern:"all", maxPrice:1000 };
-              setFilters(reset);
-              localStorage.setItem("plp_filters", JSON.stringify(reset));
-              window.dispatchEvent(new Event("plpFiltersChanged"));
-            }}>Clear</button>
-            <button className={styles.applyBtn} onClick={() => window.dispatchEvent(new Event("plpFiltersChanged"))}>Apply</button>
+            <button
+              className={styles.clearBtn}
+              onClick={() => {
+                const reset = { category: "all", maxPrice: 1000 };
+                setFilters(reset);
+                localStorage.setItem("plp_filters", JSON.stringify(reset));
+                window.dispatchEvent(new Event("plpFiltersChanged"));
+              }}
+            >
+              Clear
+            </button>
+            <button
+              className={styles.applyBtn}
+              onClick={() => {
+                window.dispatchEvent(new Event("plpFiltersChanged"));
+                if (onApply) onApply();
+              }}
+            >
+              Apply
+            </button>
           </div>
         </div>
       )}
-    </div>
+    </aside>
   );
 }
