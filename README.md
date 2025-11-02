@@ -7,7 +7,7 @@ It replicates the **Figma design** provided in the task, using data from the **F
 
 ## 🚀 Live Demo
 
-🔗 [View Deployed App on Netlify](https://69063910f3d908976f06fb82--symphonious-froyo-0106cf.netlify.app/)
+🔗 [View Deployed App on Netlify](https://appscrip-task-maheeth.netlify.app/)
 
 ---
 
